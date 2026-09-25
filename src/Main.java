@@ -5,7 +5,7 @@ public class Main extends JFrame {
 
     Grafo grafo = new Grafo();
     PainelMapa mapa;
-    JComboBox<String> comboHeur = new JComboBox<>(AStar.HEURISTICAS);
+    JComboBox<String> comboHeur = new JComboBox<>(Algoritmo.HEURISTICAS);
     JLabel lblOrigem = new JLabel("Origem: -");
     JLabel lblDestino = new JLabel("Destino: -");
     JLabel lblRota = new JLabel(" ");
@@ -83,7 +83,7 @@ public class Main extends JFrame {
     void buscar() {
         if (origem == null || destino == null) return;
 
-        AStar a = new AStar();
+        Algoritmo a = new Algoritmo();
         a.buscar(grafo, origem, destino, comboHeur.getSelectedIndex());
         mapa.resultado = a;
         mapa.repaint();
@@ -93,7 +93,7 @@ public class Main extends JFrame {
         s += "De " + origem + " para " + destino + "\n\n";
         s += "Trajeto: " + a.trajeto() + "\n";
         if (!a.caminho.isEmpty())
-            s += "Distancia total: " + AStar.num(a.g.get(destino)) + " U\n";
+            s += "Distancia total: " + Algoritmo.num(a.g.get(destino)) + " U\n";
         s += "Nos expandidos: " + a.fechados.size() + "\n";
         s += "\n--- passos ---\n" + a.log;
         txt.setText(s);

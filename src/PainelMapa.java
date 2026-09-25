@@ -11,7 +11,7 @@ public class PainelMapa extends JPanel {
     Grafo grafo;
     Main tela;
     No origem, destino;
-    AStar resultado;
+    Algoritmo resultado;
 
     public PainelMapa(Grafo grafo, Main tela) {
         this.grafo = grafo;
@@ -117,7 +117,7 @@ public class PainelMapa extends JPanel {
             if (noCaminho) {
                 g.setFont(new Font("Arial", Font.PLAIN, 11));
                 g.setColor(Color.BLUE);
-                g.drawString("" + AStar.num(resultado.g.get(n)), x + 14, y - 12);
+                g.drawString("" + Algoritmo.num(resultado.g.get(n)), x + 14, y - 12);
                 g.setFont(new Font("Arial", Font.BOLD, 14));
             }
         }
